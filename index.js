@@ -3,7 +3,6 @@ const fs = require('fs');
 const generateSvg = require("./lib/generateSVG.js")
 
 const questions = [
-    // Question for Letters (Max 3)
     {
         type: "input",
         name: "characters",
@@ -17,20 +16,17 @@ const questions = [
         }
           
     },
-    // Questions for letter color(color keyword (OR a hexadecimal number))
     {
         type: "input",
         name: "textColor",
         message: "Choose the text color (keyword or hex)",
     },
-    // Question for Shape, multiple choice circle, triangle, chair
     {
         type: "list",
         name: "shape",
         message: "Select a shape ",
         choices: ["Circle", "Triangle", "Square"]
     },
-    // Question for Shape Color(color keyword (OR a hexadecimal number))
     {
         type: "input",
         name: "shapeColor",
@@ -38,7 +34,6 @@ const questions = [
     }
 ]
 
-// Generates the file named `logo.svg` 
 function writeToFile(fileName, data) {
     const svgContent = generateSvg(data);
     fs.writeFile(
@@ -49,7 +44,6 @@ function writeToFile(fileName, data) {
                 console.error(err);
                 return;
             }
-            // Output text "Generated logo.svg" is printed in the command line
             console.log("Generated logo.svg")
 
         }
